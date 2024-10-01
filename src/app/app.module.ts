@@ -5,8 +5,10 @@ import { CommonModule, CurrencyPipe } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from '@angular/forms';
+import { StudentListComponent } from "./components/student-list/student-list.component";
 
 const routes: Routes = [
+    {path: '', component: StudentListComponent},
    
 
 ]
@@ -24,6 +26,7 @@ const routes: Routes = [
 
 declarations: [
     AppComponent,
+    StudentListComponent,
 
 ],
 

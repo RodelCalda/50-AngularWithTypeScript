@@ -1,0 +1,24 @@
+.shopping-list-container {
+    border: 2px solid #4CAF50; 
+    padding: 20px;
+    border-radius: 8px; 
+    background-color: #f9f9f9; 
+  }
+  
+  input {
+    border: 2px solid #2196F3; 
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 4px; 
+  }
+  
+  button {
+    background-color: #ff5722; 
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+ 
+  
