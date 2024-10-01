@@ -1,0 +1,13 @@
+<p>employee-list works!</p>
+
+<div class="employee-list-container">
+  <input type="text" [(ngModel)]="employeeName" placeholder="Enter employee name" />
+  <button class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
+
+  <ul>
+    <li *ngFor="let employee of employeeList">
+      {{ employee }}
+    </li>
+  </ul>
+</div>
+
