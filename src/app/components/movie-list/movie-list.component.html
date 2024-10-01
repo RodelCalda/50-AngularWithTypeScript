@@ -1,0 +1,13 @@
+<p>movie-list works!</p>
+
+<div class="movie-list-container">
+  <input type="text" [(ngModel)]="movieTitle" placeholder="Enter movie title" />
+  <button class="btn btn-primary" (click)="addMovie()">Add Movie</button>
+
+  <ul>
+    <li *ngFor="let movie of movieList">
+      {{ movie }}
+    </li>
+  </ul>
+</div>
+

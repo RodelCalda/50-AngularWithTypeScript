@@ -1,0 +1,23 @@
+.movie-list-container {
+    border: 2px solid #FF5733; 
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #FFE0E0; 
+  }
+  
+  input {
+    border: 2px solid #FF5733; 
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 4px;
+    width: 200px; 
+  }
+  
+  button {
+    background-color: #3498DB; 
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+  }
+  
