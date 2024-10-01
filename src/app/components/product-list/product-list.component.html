@@ -1,0 +1,13 @@
+<p>Product List Works!</p>
+
+<div class="product-list-container">
+  <input type="text" [(ngModel)]="productName" placeholder="Enter product name" />
+  <button class="btn btn-primary" (click)="addProduct()">Add Product</button>
+
+  <ul>
+    <li *ngFor="let product of productList">
+      {{ product }}
+    </li>
+  </ul>
+</div>
+
