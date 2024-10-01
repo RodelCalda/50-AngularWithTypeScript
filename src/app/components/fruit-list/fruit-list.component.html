@@ -1,0 +1,14 @@
+<p>fruit-list works!</p>
+
+<div class="fruit-list-container">
+  <input type="text" [(ngModel)]="fruitName" placeholder="Enter fruit name" />
+  <button class="btn btn-primary" (click)="addFruit()">Add Fruit</button>
+
+  <ul>
+    <li *ngFor="let fruit of fruitList">
+      {{ fruit }}
+    </li>
+  </ul>
+</div>
+
+
