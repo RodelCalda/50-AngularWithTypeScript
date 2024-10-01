@@ -1,0 +1,21 @@
+.car-model-list-container {
+    border: 2px solid #4CAF50; 
+    border-radius: 8px;
+    background-color: #E8F5E9; 
+  }
+  
+  input {
+    border: 2px solid #4CAF50; 
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 4px;
+    width: 200px; 
+  }
+  
+  button {
+    background-color: #2196F3; 
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+  }

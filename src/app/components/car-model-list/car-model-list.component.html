@@ -1,0 +1,13 @@
+<p>car-model-list works!</p>
+
+<div class="car-model-list-container">
+  <input type="text" [(ngModel)]="carModel" placeholder="Enter car model" />
+  <button class="btn btn-primary" (click)="addCarModel()">Add Car Model</button>
+
+  <ul>
+    <li *ngFor="let model of carModelList">
+      {{ model }}
+    </li>
+  </ul>
+</div>
+
