@@ -1,0 +1,13 @@
+<p>Laptop List Works!</p>
+
+<div class="laptop-container">
+  <input type="text" [(ngModel)]="laptopModel" placeholder="Enter laptop model" />
+  <button class="btn btn-primary" (click)="addLaptop()">Add Laptop</button>
+
+  <ul>
+    <li *ngFor="let model of laptopList">
+      {{ model }}
+    </li>
+  </ul>
+</div>
+
