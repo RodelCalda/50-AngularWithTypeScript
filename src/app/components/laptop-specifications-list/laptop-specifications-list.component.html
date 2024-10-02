@@ -1,0 +1,12 @@
+<p>laptop-specifications-list works!</p>
+
+<div class="specifications-container">
+  <input type="text" [(ngModel)]="specification" placeholder="Enter laptop specification" />
+  <button class="btn btn-primary" (click)="addSpecification()">Add Specification</button>
+
+  <ul>
+    <li *ngFor="let spec of specificationsList">
+      {{ spec }}
+    </li>
+  </ul>
+</div>
