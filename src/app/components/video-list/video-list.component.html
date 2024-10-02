@@ -1,0 +1,12 @@
+<p>video-list works!</p>
+
+<div class="video-container">
+    <input type="text" [(ngModel)]="videoTitle" placeholder="Enter video title" />
+    <button class="btn btn-primary" (click)="addVideo()">Add Video</button>
+  
+    <ul>
+      <li *ngFor="let video of videoList">
+        {{ video }}
+      </li>
+    </ul>
+  </div>
