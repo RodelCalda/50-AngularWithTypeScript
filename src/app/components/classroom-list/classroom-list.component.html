@@ -1,0 +1,13 @@
+<p>Classroom List</p>
+
+<div class="classroom-container">
+  <input type="text" [(ngModel)]="studentName" placeholder="Enter student name" />
+  <button class="btn btn-primary" (click)="addStudent()">Add Student</button>
+
+  <ul>
+    <li *ngFor="let student of studentList">
+      {{ student }}
+    </li>
+  </ul>
+</div>
+
