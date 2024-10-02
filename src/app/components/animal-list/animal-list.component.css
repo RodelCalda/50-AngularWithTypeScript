@@ -1,0 +1,23 @@
+.animal-list-container {
+    border: 2px solid #FF9800; 
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #FFF3E0; 
+  }
+  
+  input {
+    border: 2px solid #FF9800; 
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 4px;
+    width: 200px;
+  }
+  
+  button {
+    background-color: #FF5722; 
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+  }
+  
