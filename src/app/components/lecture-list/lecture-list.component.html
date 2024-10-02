@@ -1,0 +1,13 @@
+<p>Lecture List for BSIT Course</p>
+
+<div class="lecture-container">
+  <input type="text" [(ngModel)]="lectureName" placeholder="Enter lecture title" />
+  <button class="btn btn-primary" (click)="addLecture()">Add Lecture</button>
+
+  <ul>
+    <li *ngFor="let lecture of lectureList">
+      {{ lecture }}
+    </li>
+  </ul>
+</div>
+
