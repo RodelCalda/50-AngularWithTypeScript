@@ -1,0 +1,14 @@
+<p>Phone Contact List Works!</p>
+
+<div class="contact-list-container">
+  <input type="text" [(ngModel)]="contactName" placeholder="Enter contact name" />
+  <input type="text" [(ngModel)]="contactNumber" placeholder="Enter phone number" />
+  <button class="btn btn-primary" (click)="addContact()">Add Contact</button>
+
+  <ul>
+    <li *ngFor="let contact of contactList">
+      {{ contact.name }} - {{ contact.number }}
+    </li>
+  </ul>
+</div>
+
