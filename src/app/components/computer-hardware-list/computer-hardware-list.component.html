@@ -1,0 +1,12 @@
+<p>computer-hardware-list works!</p>
+
+<div class="hardware-container">
+  <input type="text" [(ngModel)]="component" placeholder="Enter computer component" />
+  <button class="btn btn-primary" (click)="addComponent()">Add Component</button>
+
+  <ul>
+    <li *ngFor="let comp of hardwareList">
+      {{ comp }}
+    </li>
+  </ul>
+</div>
