@@ -1,0 +1,11 @@
+<p>tv-show-list works!</p>
+<div class="tv-show-container">
+    <input type="text" [(ngModel)]="tvShowName" placeholder="Enter TV show name" />
+    <button class="btn btn-primary" (click)="addTvShow()">Add TV Show</button>
+  
+    <ul>
+      <li *ngFor="let show of tvShowList">
+        {{ show }}
+      </li>
+    </ul>
+  </div>
