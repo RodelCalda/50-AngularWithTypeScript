@@ -1,0 +1,12 @@
+<p>mobile-app-list works!</p>
+
+<div class="app-container">
+  <input type="text" [(ngModel)]="appName" placeholder="Enter mobile app name" />
+  <button class="btn btn-primary" (click)="addApp()">Add App</button>
+
+  <ul>
+    <li *ngFor="let app of appList">
+      {{ app }}
+    </li>
+  </ul>
+</div>
