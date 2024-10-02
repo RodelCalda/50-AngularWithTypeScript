@@ -1,0 +1,15 @@
+<p>Music Playlist Works!</p>
+
+<div class="playlist-container">
+  <input type="text" [(ngModel)]="songName" placeholder="Enter song name" />
+  <input type="text" [(ngModel)]="artistName" placeholder="Enter artist name" />
+  <button class="btn btn-primary" (click)="addSong()">Add Song</button>
+
+  <ul>
+    <li *ngFor="let song of musicList">
+      {{ song.name }} by {{ song.artist }}
+    </li>
+  </ul>
+</div>
+
+
