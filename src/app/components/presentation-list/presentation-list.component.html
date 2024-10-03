@@ -1,0 +1,14 @@
+<p>Presentation-List Works!</p>
+
+
+<div class="presentation-container">
+  <input type="text" [(ngModel)]="presentationTopic" placeholder="Enter presentation topic" />
+  <button class="btn btn-primary" (click)="addPresentation()">Add Presentation Topic</button>
+
+  <ul>
+    <li *ngFor="let topic of presentationList">
+      {{ topic }}
+    </li>
+  </ul>
+</div>
+
