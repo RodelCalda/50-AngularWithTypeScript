@@ -1,0 +1,11 @@
+<p>Library-List Works!</p>
+<div class="libraries-container">
+    <input type="text" [(ngModel)]="libraryName" placeholder="Enter library name" />
+    <button class="btn btn-primary" (click)="addLibrary()">Add Library</button>
+  
+    <ul>
+      <li *ngFor="let library of librariesList">
+        {{ library }}
+      </li>
+    </ul>
+  </div>

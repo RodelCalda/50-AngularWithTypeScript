@@ -1,0 +1,22 @@
+.libraries-container {
+    border: 2px solid #007BFF; 
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #E3F2FD;
+  }
+  
+  input {
+    border: 2px solid #007BFF; 
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 4px;
+    width: 200px; 
+  }
+  
+  button {
+    background-color: #0056b3; 
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+  }
