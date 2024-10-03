@@ -1,0 +1,13 @@
+<p>Building-List Works!</p>
+
+<div class="building-container">
+  <input type="text" [(ngModel)]="buildingName" placeholder="Enter building name" />
+  <button class="btn btn-primary" (click)="addBuilding()">Add Building</button>
+
+  <ul>
+    <li *ngFor="let building of buildingList">
+      {{ building }}
+    </li>
+  </ul>
+</div>
+
