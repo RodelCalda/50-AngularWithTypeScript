@@ -1,0 +1,13 @@
+<p>Event-List Works!</p>
+
+<div class="event-container">
+    <input type="text" [(ngModel)]="eventName" placeholder="Enter event name" />
+    <input type="date" [(ngModel)]="eventDate" placeholder="Select event date" />
+    <button class="btn btn-primary" (click)="addEvent()">Add Event</button>
+  
+    <ul>
+      <li *ngFor="let event of eventList">
+        {{ event.name }} - {{ event.date | date:'fullDate' }}
+      </li>
+    </ul>
+  </div>
