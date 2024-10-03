@@ -1,0 +1,13 @@
+<p>Painting-List Works!</p>
+
+<div class="painting-container">
+  <input type="text" [(ngModel)]="paintingName" placeholder="Enter painting name" />
+  <button class="btn btn-primary" (click)="addPainting()">Add Painting</button>
+
+  <ul>
+    <li *ngFor="let painting of paintingList">
+      {{ painting }}
+    </li>
+  </ul>
+</div>
+
