@@ -1,0 +1,11 @@
+<p>Podcast-List Works!</p>
+<div class="podcast-container">
+    <input type="text" [(ngModel)]="podcastName" placeholder="Enter podcast episode name" />
+    <button class="btn btn-primary" (click)="addPodcast()">Add Podcast</button>
+  
+    <ul>
+      <li *ngFor="let podcast of podcastList">
+        {{ podcast }}
+      </li>
+    </ul>
+  </div>

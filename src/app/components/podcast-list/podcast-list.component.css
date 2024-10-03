@@ -1,0 +1,23 @@
+.podcast-container {
+    border: 2px solid #8BC34A; 
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #F1F8E9; 
+  }
+  
+  input {
+    border: 2px solid #8BC34A; 
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 4px;
+    width: 300px; 
+  }
+  
+  button {
+    background-color: #558B2F; 
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+  }
+  
