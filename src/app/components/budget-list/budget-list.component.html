@@ -1,0 +1,12 @@
+<p>Budget-List Works!</p>
+<div class="budget-container">
+    <input type="text" [(ngModel)]="budgetItem" placeholder="Enter budget item" />
+    <input type="number" [(ngModel)]="budgetAmount" placeholder="Enter budget amount" />
+    <button class="btn btn-primary" (click)="addBudget()">Add Budget Item</button>
+  
+    <ul>
+      <li *ngFor="let item of budgetList">
+        {{ item.name }} - {{ item.amount | currency:'PHP':'symbol' }}
+      </li>
+    </ul>
+  </div>
