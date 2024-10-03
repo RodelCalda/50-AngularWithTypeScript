@@ -1,0 +1,12 @@
+<p>Tour-List works!</p>
+<div class="tour-container">
+    <input type="text" [(ngModel)]="tourLocation" placeholder="Enter tour location" />
+    <input type="date" [(ngModel)]="tourDate" placeholder="Select tour date" />
+    <button class="btn btn-primary" (click)="addTour()">Add Tour Date</button>
+  
+    <ul>
+      <li *ngFor="let tour of tourList">
+        {{ tour.location }} - {{ tour.date | date:'fullDate' }}
+      </li>
+    </ul>
+  </div> 
