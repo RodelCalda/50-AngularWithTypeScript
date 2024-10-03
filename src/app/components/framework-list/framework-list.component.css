@@ -1,0 +1,22 @@
+.frameworks-container {
+    border: 2px solid #28a745; 
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #E9F8EA; 
+  }
+  
+  input {
+    border: 2px solid #28a745; 
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 4px;
+    width: 200px; 
+  }
+  
+  button {
+    background-color: #218838; 
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+  }
