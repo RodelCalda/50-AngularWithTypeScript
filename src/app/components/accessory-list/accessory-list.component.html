@@ -1,12 +1,18 @@
-<p>Accessory-List Works!</p>
+<h2>Accessory List</h2>
 
-<div class="accessory-container">
-  <input type="text" [(ngModel)]="accessoryName" placeholder="Enter accessory name" />
-  <button class="btn btn-primary" (click)="addAccessory()">Add Accessory</button>
+<input type="text" [(ngModel)]="newAccessory.name" placeholder="Name" />
+<input type="text" [(ngModel)]="newAccessory.category" placeholder="Category" />
+<input type="text" [(ngModel)]="newAccessory.brand" placeholder="Brand" />
+<input type="number" [(ngModel)]="newAccessory.price" placeholder="Price" />
 
-  <ul>
-    <li *ngFor="let accessory of accessoryList">
-      {{ accessory }}
-    </li>
-  </ul>
-</div>
+<button (click)="addAccessory()">Add Accessory</button>
+
+<ul>
+  <li *ngFor="let accessory of accessoryList">
+    {{ accessory.name }} - {{ accessory.category }} (Brand: {{ accessory.brand }}, Price: Php{{ accessory.price }})
+    <button (click)="removeAccessory(accessory.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearAccessories()">Clear All Accessories</button>
+

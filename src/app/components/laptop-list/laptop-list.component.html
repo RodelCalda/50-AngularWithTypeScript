@@ -1,13 +1,21 @@
-<p>Laptop List Works!</p>
+<h2>Laptop List</h2>
 
-<div class="laptop-container">
-  <input type="text" [(ngModel)]="laptopModel" placeholder="Enter laptop model" />
-  <button class="btn btn-primary" (click)="addLaptop()">Add Laptop</button>
+<input type="text" [(ngModel)]="newLaptop.brand" placeholder="Brand" />
+<input type="text" [(ngModel)]="newLaptop.model" placeholder="Model" />
+<input type="text" [(ngModel)]="newLaptop.processor" placeholder="Processor" />
+<input type="text" [(ngModel)]="newLaptop.ramSize" placeholder="RAM Size" />
+<input type="text" [(ngModel)]="newLaptop.storage" placeholder="Storage" />
+<input type="number" [(ngModel)]="newLaptop.price" placeholder="Price" />
 
-  <ul>
-    <li *ngFor="let model of laptopList">
-      {{ model }}
-    </li>
-  </ul>
-</div>
+<button (click)="addLaptop()">Add Laptop</button>
+
+<ul>
+  <li *ngFor="let laptop of laptopList">
+    {{ laptop.brand }} {{ laptop.model }} - {{ laptop.processor }}, {{ laptop.ramSize }}, {{ laptop.storage }} (Php{{ laptop.price }})
+    <button (click)="removeLaptop(laptop.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearLaptops()">Clear All Laptops</button>
+
 

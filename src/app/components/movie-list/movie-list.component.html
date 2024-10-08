@@ -1,13 +1,17 @@
-<p>movie-list works!</p>
+<h2>Movie List</h2>
 
-<div class="movie-list-container">
-  <input type="text" [(ngModel)]="movieTitle" placeholder="Enter movie title" />
-  <button class="btn btn-primary" (click)="addMovie()">Add Movie</button>
+<input type="text" [(ngModel)]="newMovie.title" placeholder="Movie Title" />
+<input type="text" [(ngModel)]="newMovie.director" placeholder="Director" />
+<input type="number" [(ngModel)]="newMovie.releaseYear" placeholder="Release Year" />
+<input type="text" [(ngModel)]="newMovie.genre" placeholder="Genre" />
 
-  <ul>
-    <li *ngFor="let movie of movieList">
-      {{ movie }}
-    </li>
-  </ul>
-</div>
+<button (click)="addMovie()">Add Movie</button>
+<button (click)="clearMovies()">Clear All Movies</button>
+
+<ul>
+  <li *ngFor="let movie of movieList">
+    {{ movie.title }} (Directed by: {{ movie.director }}, Released: {{ movie.releaseYear }}, Genre: {{ movie.genre }})
+    <button (click)="removeMovie(movie.id)">Remove</button>
+  </li>
+</ul>
 

@@ -1,30 +1,40 @@
 import { Component } from '@angular/core';
+import { BuildingListService } from '../services/building-list.service';
+import { Building } from '../../../interface/building'; 
 
 @Component({
   selector: 'app-building-list',
   templateUrl: './building-list.component.html',
-  styleUrls: ['./building-list.component.css']
+  styleUrls: ['./building-list.component.css'],
 })
 export class BuildingListComponent {
-  buildingList: string[] = [
-    'Main Administration Building',
-    'Library',
-    'Lecture Halls',
-    'Student Union Building',
-    'Science and Research Building',
-    'Dormitories/Residential Halls',
-    'Gymnasium/Sports Complex',
-    'Faculty Offices Building',
-    'Medical School Building'
-  ];
+  newBuilding: Building = { id: 0, name: '', address: '', floors: 0, builtYear: 0 };
+  buildingList: Building[] = [];
 
-  buildingName: string = '';
+  constructor(private buildingService: BuildingListService) {
+    this.buildingList = this.buildingService.getBuildings(); 
+  }
 
   addBuilding() {
-    if (this.buildingName) { 
-      this.buildingList.push(this.buildingName);
-      this.buildingName = ''; 
+    if (this.newBuilding.name.trim() && this.newBuilding.address.trim() && this.newBuilding.floors > 0 && this.newBuilding.builtYear > 0) {
+      const newId = this.buildingList.length
+        ? this.buildingList[this.buildingList.length - 1].id + 1
+        : 1;
+      const buildingToAdd: Building = { ...this.newBuilding, id: newId };
+
+      this.buildingService.addBuilding(buildingToAdd);
+      this.newBuilding = { id: 0, name: '', address: '', floors: 0, builtYear: 0 }; 
+      this.buildingList = this.buildingService.getBuildings(); 
     }
   }
-}
 
+  removeBuilding(id: number) {
+    this.buildingService.removeBuilding(id);
+    this.buildingList = this.buildingService.getBuildings(); 
+  }
+
+  clearBuildings() {
+    this.buildingService.clearBuildings();
+    this.buildingList = this.buildingService.getBuildings();
+  }
+}

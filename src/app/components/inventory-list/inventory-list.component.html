@@ -1,13 +1,17 @@
-<<p>Inventory List Works!</p>
+<h2>Inventory List</h2>
 
-<div class="inventory-container">
-  <input type="text" [(ngModel)]="itemName" placeholder="Enter inventory item" />
-  <button class="btn btn-primary" (click)="addItem()">Add Item</button>
+<!-- Input fields for adding a new inventory item -->
+<input type="text" [(ngModel)]="newInventoryItem.name" placeholder="Item Name" />
+<input type="number" [(ngModel)]="newInventoryItem.quantity" placeholder="Quantity" />
+<input type="number" [(ngModel)]="newInventoryItem.price" placeholder="Price" />
 
-  <ul>
-    <li *ngFor="let item of inventoryList">
-      {{ item }}
-    </li>
-  </ul>
-</div>
+<button (click)="addInventoryItem()">Add Inventory Item</button>
 
+<ul>
+  <li *ngFor="let item of inventoryList">
+    {{ item.name }} (Quantity: {{ item.quantity }}, Price: {{ item.price }})
+    <button (click)="removeInventoryItem(item.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearInventory()">Clear All Inventory</button>

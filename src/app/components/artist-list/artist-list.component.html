@@ -1,11 +1,18 @@
-<p>Artist-List Works!</p>
-<div class="artist-container">
-    <input type="text" [(ngModel)]="artistName" placeholder="Enter artist name" />
-    <button class="btn btn-primary" (click)="addArtist()">Add Artist</button>
-  
-    <ul>
-      <li *ngFor="let artist of artistList">
-        {{ artist }}
-      </li>
-    </ul>
-  </div>
+<h2>Artist List</h2>
+
+<input type="text" [(ngModel)]="newArtist.name" placeholder="Artist Name" />
+<input type="text" [(ngModel)]="newArtist.genre" placeholder="Genre" />
+<input type="text" [(ngModel)]="newArtist.nationality" placeholder="Nationality" />
+<input type="number" [(ngModel)]="newArtist.birthYear" placeholder="Birth Year" />
+
+<button (click)="addArtist()">Add Artist</button>
+
+<ul>
+  <li *ngFor="let artist of artistList">
+    {{ artist.name }} - {{ artist.genre }} ({{ artist.nationality }}, Born: {{ artist.birthYear }})
+    <button (click)="removeArtist(artist.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearArtists()">Clear All Artists</button>
+

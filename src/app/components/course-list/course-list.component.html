@@ -1,13 +1,18 @@
-<p>course-list works!</p>
+<h2>Course List</h2>
 
-<div class="course-list-container">
-  <input type="text" [(ngModel)]="courseName" placeholder="Enter course name" />
-  <button class="btn btn-primary" (click)="addCourse()">Add Course</button>
+<input type="text" [(ngModel)]="newCourse.title" placeholder="Course Title" />
+<input type="text" [(ngModel)]="newCourse.description" placeholder="Description" />
+<input type="text" [(ngModel)]="newCourse.duration" placeholder="Duration" />
 
-  <ul>
-    <li *ngFor="let course of courseList">
-      {{ course }}
-    </li>
-  </ul>
-</div>
+<button (click)="addCourse()">Add Course</button>
+<button (click)="clearCourses()">Clear All Courses</button>
+
+<ul>
+  <li *ngFor="let course of courseList">
+    {{ course.title }} (Description: {{ course.description }}, Duration: {{ course.duration }})
+    <button (click)="removeCourse(course.id)">Remove</button>
+  </li>
+</ul>
+
+
 

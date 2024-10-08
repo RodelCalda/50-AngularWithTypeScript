@@ -1,29 +1,38 @@
 import { Component } from '@angular/core';
+import { PaintingListService } from '../services/painting-list.service';
+import { Painting } from '../../../interface/painting'; 
 
 @Component({
   selector: 'app-painting-list',
   templateUrl: './painting-list.component.html',
-  styleUrls: ['./painting-list.component.css']
+  styleUrls: ['./painting-list.component.css'],
 })
 export class PaintingListComponent {
-  paintingList: string[] = [
-    'Spoliarium by Juan Luna',
-    'The Parisian Life by Juan Luna',
-    'Planting Rice by Fernando Amorsolo',
-    'The Blood Compact by Juan Luna',
-    'Madonna of the Slums by Vicente Manansala',
-    'The Builders by Victorio Edades',
-    'Granadean Arabesque by José Joya',
-    'Bataan by Hernando R. Ocampo'
-  ];
+  newPainting: Painting = { id: 0, title: '', artist: '', year: 0, style: '' };
+  paintingList: Painting[] = [];
 
-  paintingName: string = '';
+  constructor(private paintingService: PaintingListService) {
+    this.paintingList = this.paintingService.getPaintings(); 
+  }
 
   addPainting() {
-    if (this.paintingName) { 
-      this.paintingList.push(this.paintingName);
-      this.paintingName = '';
+    if (this.newPainting.title.trim() && this.newPainting.artist.trim() && this.newPainting.year > 0 && this.newPainting.style.trim()) {
+      const newId = this.paintingList.length ? this.paintingList[this.paintingList.length - 1].id + 1 : 1;
+      const paintingToAdd: Painting = { ...this.newPainting, id: newId };
+
+      this.paintingService.addPainting(paintingToAdd);
+      this.newPainting = { id: 0, title: '', artist: '', year: 0, style: '' }; 
+      this.paintingList = this.paintingService.getPaintings(); 
     }
   }
-}
 
+  removePainting(id: number) {
+    this.paintingService.removePainting(id);
+    this.paintingList = this.paintingService.getPaintings(); 
+  }
+
+  clearPaintings() {
+    this.paintingService.clearPaintings(); 
+    this.paintingList = this.paintingService.getPaintings(); 
+  }
+}

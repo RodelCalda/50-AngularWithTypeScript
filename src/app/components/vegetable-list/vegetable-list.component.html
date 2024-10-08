@@ -1,13 +1,16 @@
-<p>Vegetable List Works!</p>
+<h2>Vegetable List</h2>
 
-<div class="vegetable-list-container">
-  <input type="text" [(ngModel)]="vegetableName" placeholder="Enter vegetable name" />
-  <button class="btn btn-primary" (click)="addVegetable()">Add Vegetable</button>
+<input type="text" [(ngModel)]="newVegetable.name" placeholder="Vegetable Name" />
+<input type="text" [(ngModel)]="newVegetable.color" placeholder="Color" />
+<input type="number" [(ngModel)]="newVegetable.price" placeholder="Price" />
 
-  <ul>
-    <li *ngFor="let vegetable of vegetableList">
-      {{ vegetable }}
-    </li>
-  </ul>
-</div>
+<button (click)="addVegetable()">Add Vegetable</button>
+<button (click)="clearVegetables()">Clear All Vegetables</button>
+
+<ul>
+  <li *ngFor="let vegetable of vegetableList">
+    {{ vegetable.name }} (Color: {{ vegetable.color }}, Price: Php{{ vegetable.price.toFixed(2) }})
+    <button (click)="removeVegetable(vegetable.id)">Remove</button>
+  </li>
+</ul>
 

@@ -1,13 +1,21 @@
-<p>Grocery List Works!</p>
+<h2>Grocery List</h2>
 
-<div class="grocery-container">
-  <input type="text" [(ngModel)]="groceryItem" placeholder="Enter grocery item" />
-  <button class="btn btn-primary" (click)="addGrocery()">Add Item</button>
+<input type="text" [(ngModel)]="newGroceryItem.name" placeholder="Grocery Item Name" />
+<input type="number" [(ngModel)]="newGroceryItem.quantity" placeholder="Quantity" />
 
-  <ul>
-    <li *ngFor="let item of groceryList">
-      {{ item }}
-    </li>
-  </ul>
-</div>
+<label>
+  Purchased:
+  <input type="checkbox" [(ngModel)]="newGroceryItem.purchased" />
+</label>
+
+<button (click)="addGroceryItem()">Add Grocery Item</button>
+
+<ul>
+  <li *ngFor="let groceryItem of groceryList">
+    {{ groceryItem.name }} (Quantity: {{ groceryItem.quantity }}, Purchased: {{ groceryItem.purchased ? 'Yes' : 'No' }})
+    <button (click)="removeGroceryItem(groceryItem.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearGroceryList()">Clear All Grocery Items</button>
 

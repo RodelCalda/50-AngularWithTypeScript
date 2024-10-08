@@ -1,13 +1,14 @@
-<p>Sports List</p>
+<h2>Sports List</h2>
 
-<div class="sports-list-container">
-  <input type="text" [(ngModel)]="sportName" placeholder="Enter sport name" />
-  <button class="btn btn-primary" (click)="addSport()">Add Sport</button>
+<input type="text" [(ngModel)]="newSport.name" placeholder="Sport Name" />
+<input type="text" [(ngModel)]="newSport.category" placeholder="Sport Category" />
 
-  <ul>
-    <li *ngFor="let sport of sportsList">
-      {{ sport }}
-    </li>
-  </ul>
-</div>
+<button (click)="addSport()">Add Sport</button>
+<button (click)="clearSports()">Clear All Sports</button>
 
+<ul>
+  <li *ngFor="let sport of sportsList">
+    {{ sport.name }} (Category: {{ sport.category }})
+    <button (click)="removeSport(sport.id)">Remove</button>
+  </li>
+</ul>

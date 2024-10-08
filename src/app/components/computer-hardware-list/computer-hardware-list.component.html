@@ -1,12 +1,19 @@
-<p>computer-hardware-list works!</p>
+<h2>Computer Hardware List</h2>
 
-<div class="hardware-container">
-  <input type="text" [(ngModel)]="component" placeholder="Enter computer component" />
-  <button class="btn btn-primary" (click)="addComponent()">Add Component</button>
+<input type="text" [(ngModel)]="newHardware.component" placeholder="Component (e.g., CPU)" />
+<input type="text" [(ngModel)]="newHardware.brand" placeholder="Brand" />
+<input type="text" [(ngModel)]="newHardware.model" placeholder="Model" />
+<input type="text" [(ngModel)]="newHardware.specifications" placeholder="Specifications" />
+<input type="number" [(ngModel)]="newHardware.price" placeholder="Price" />
 
-  <ul>
-    <li *ngFor="let comp of hardwareList">
-      {{ comp }}
-    </li>
-  </ul>
-</div>
+<button (click)="addHardware()">Add Hardware</button>
+
+<ul>
+  <li *ngFor="let hardware of hardwareList">
+    {{ hardware.component }} - {{ hardware.brand }} {{ hardware.model }}: {{ hardware.specifications }} (Php{{ hardware.price }})
+    <button (click)="removeHardware(hardware.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearHardware()">Clear All Hardware</button>
+

@@ -1,12 +1,19 @@
-<p>mobile-app-list works!</p>
+<h2>Mobile App List</h2>
 
-<div class="app-container">
-  <input type="text" [(ngModel)]="appName" placeholder="Enter mobile app name" />
-  <button class="btn btn-primary" (click)="addApp()">Add App</button>
+<input type="text" [(ngModel)]="newMobileApp.name" placeholder="App Name" />
+<input type="text" [(ngModel)]="newMobileApp.category" placeholder="Category" />
+<input type="text" [(ngModel)]="newMobileApp.developer" placeholder="Developer" />
+<input type="number" [(ngModel)]="newMobileApp.rating" placeholder="Rating" />
+<input type="number" [(ngModel)]="newMobileApp.price" placeholder="Price" />
 
-  <ul>
-    <li *ngFor="let app of appList">
-      {{ app }}
-    </li>
-  </ul>
-</div>
+<button (click)="addMobileApp()">Add App</button>
+
+<ul>
+  <li *ngFor="let app of mobileAppList">
+    {{ app.name }} - {{ app.category }} by {{ app.developer }}: Rating {{ app.rating }} (Php{{ app.price }})
+    <button (click)="removeMobileApp(app.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearMobileApps()">Clear All Apps</button>
+

@@ -1,13 +1,18 @@
-<p>employee-list works!</p>
+<h2>Employee List</h2>
 
-<div class="employee-list-container">
-  <input type="text" [(ngModel)]="employeeName" placeholder="Enter employee name" />
-  <button class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
+<input type="text" [(ngModel)]="newEmployee.name" placeholder="Employee Name" />
+<input type="text" [(ngModel)]="newEmployee.position" placeholder="Position" />
+<input type="number" [(ngModel)]="newEmployee.age" placeholder="Age" />
 
-  <ul>
-    <li *ngFor="let employee of employeeList">
-      {{ employee }}
-    </li>
-  </ul>
-</div>
+<button (click)="addEmployee()">Add Employee</button>
+<button (click)="clearEmployees()">Clear All Employees</button>
+
+<ul>
+  <li *ngFor="let employee of employeeList">
+    {{ employee.name }} (Position: {{ employee.position }}, Age: {{ employee.age }})
+    <button (click)="removeEmployee(employee.id)">Remove</button>
+  </li>
+</ul>
+
+
 

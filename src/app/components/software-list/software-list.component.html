@@ -1,13 +1,19 @@
-<p>Installed Software List Works!</p>
+<h2>Software List</h2>
 
-<div class="software-list-container">
-  <input type="text" [(ngModel)]="softwareName" placeholder="Enter software name" />
-  <button class="btn btn-primary" (click)="addSoftware()">Add Software</button>
+<!-- Input fields for adding a new software -->
+<input type="text" [(ngModel)]="newSoftware.name" placeholder="Software Name" />
+<input type="text" [(ngModel)]="newSoftware.version" placeholder="Version" />
+<input type="text" [(ngModel)]="newSoftware.licenseType" placeholder="License Type" />
+<input type="date" [(ngModel)]="newSoftware.releaseDate" placeholder="Release Date" />
 
-  <ul>
-    <li *ngFor="let software of softwareList">
-      {{ software }}
-    </li>
-  </ul>
-</div>
+<button (click)="addSoftware()">Add Software</button>
+
+<ul>
+  <li *ngFor="let software of softwareList">
+    {{ software.name }} (Version: {{ software.version }}, License: {{ software.licenseType }}, Release Date: {{ software.releaseDate | date: 'longDate' }})
+    <button (click)="removeSoftware(software.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearSoftwareList()">Clear All Software</button>
 

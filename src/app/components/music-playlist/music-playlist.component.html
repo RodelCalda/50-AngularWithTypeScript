@@ -1,15 +1,20 @@
-<p>Music Playlist Works!</p>
+<h2>Music Playlist</h2>
 
-<div class="playlist-container">
-  <input type="text" [(ngModel)]="songName" placeholder="Enter song name" />
-  <input type="text" [(ngModel)]="artistName" placeholder="Enter artist name" />
-  <button class="btn btn-primary" (click)="addSong()">Add Song</button>
 
-  <ul>
-    <li *ngFor="let song of musicList">
-      {{ song.name }} by {{ song.artist }}
-    </li>
-  </ul>
-</div>
+<input type="text" [(ngModel)]="newTrack.title" placeholder="Song Title" />
+<input type="text" [(ngModel)]="newTrack.artist" placeholder="Artist" />
+<input type="text" [(ngModel)]="newTrack.album" placeholder="Album" />
+<input type="text" [(ngModel)]="newTrack.duration" placeholder="Duration (mm:ss)" />
+
+<button (click)="addTrack()">Add Track</button>
+
+<ul>
+  <li *ngFor="let track of playlist">
+    {{ track.title }} by {{ track.artist }} (Album: {{ track.album }}, Duration: {{ track.duration }})
+    <button (click)="removeTrack(track.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearPlaylist()">Clear All Tracks</button>
 
 

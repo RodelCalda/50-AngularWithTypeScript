@@ -1,13 +1,22 @@
-<p>Food Menu List Works!</p>
+<h2>Food Menu</h2>
 
-<div class="menu-container">
-  <input type="text" [(ngModel)]="foodName" placeholder="Enter food item" />
-  <button class="btn btn-primary" (click)="addFood()">Add Food</button>
+<!-- Input fields for adding a new food item -->
+<input type="text" [(ngModel)]="newFoodItem.name" placeholder="Food Name" />
+<input type="text" [(ngModel)]="newFoodItem.category" placeholder="Category" />
+<input type="number" [(ngModel)]="newFoodItem.price" placeholder="Price" />
+<label>
+  Available:
+  <input type="checkbox" [(ngModel)]="newFoodItem.available" />
+</label>
 
-  <ul>
-    <li *ngFor="let food of foodList">
-      {{ food }}
-    </li>
-  </ul>
-</div>
+<button (click)="addFoodItem()">Add Food Item</button>
+
+<ul>
+  <li *ngFor="let foodItem of foodMenu">
+    {{ foodItem.name }} (Category: {{ foodItem.category }}, Price: Php{{ foodItem.price }}, Available: {{ foodItem.available ? 'Yes' : 'No' }})
+    <button (click)="removeFoodItem(foodItem.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearFoodMenu()">Clear All Food Items</button>
 

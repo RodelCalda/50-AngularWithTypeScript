@@ -1,13 +1,16 @@
-<p>Programming Language List Works!</p>
+<h2>Programming Language List</h2>
 
-<div class="language-list-container">
-  <input type="text" [(ngModel)]="languageName" placeholder="Enter language name" />
-  <button class="btn btn-primary" (click)="addLanguage()">Add Language</button>
+<input type="text" [(ngModel)]="newLanguage.name" placeholder="Language Name" />
+<input type="text" [(ngModel)]="newLanguage.paradigm" placeholder="Paradigm" />
+<input type="number" [(ngModel)]="newLanguage.year" placeholder="Year" />
 
-  <ul>
-    <li *ngFor="let language of languageList">
-      {{ language }}
-    </li>
-  </ul>
-</div>
+<button (click)="addLanguage()">Add Language</button>
+<button (click)="clearLanguages()">Clear All Languages</button>
+
+<ul>
+  <li *ngFor="let language of languageList">
+    {{ language.name }} (Paradigm: {{ language.paradigm }}, Year: {{ language.year }})
+    <button (click)="removeLanguage(language.id)">Remove</button>
+  </li>
+</ul>
 

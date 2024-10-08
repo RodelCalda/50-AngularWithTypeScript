@@ -1,13 +1,18 @@
-<p>Stationery List Works!</p>
+<h2>Stationery List</h2>
 
-<div class="stationery-container">
-  <input type="text" [(ngModel)]="stationeryName" placeholder="Enter stationery item" />
-  <button class="btn btn-primary" (click)="addStationery()">Add Item</button>
+<input type="text" [(ngModel)]="newStationery.name" placeholder="Item Name" />
+<input type="text" [(ngModel)]="newStationery.type" placeholder="Item Type" />
+<input type="number" [(ngModel)]="newStationery.quantity" placeholder="Quantity" />
+<input type="number" [(ngModel)]="newStationery.price" placeholder="Price" />
 
-  <ul>
-    <li *ngFor="let item of stationeryList">
-      {{ item }}
-    </li>
-  </ul>
-</div>
+<button (click)="addStationery()">Add Stationery</button>
+
+<ul>
+  <li *ngFor="let item of stationeryList">
+    {{ item.name }} (Type: {{ item.type }}, Quantity: {{ item.quantity }}, Price: Php{{ item.price }})
+    <button (click)="removeStationery(item.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearStationery()">Clear All Stationery</button>
 

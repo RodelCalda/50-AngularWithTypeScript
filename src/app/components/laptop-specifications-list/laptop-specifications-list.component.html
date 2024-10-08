@@ -1,12 +1,21 @@
-<p>laptop-specifications-list works!</p>
+<h2>Laptop Specifications List</h2>
 
-<div class="specifications-container">
-  <input type="text" [(ngModel)]="specification" placeholder="Enter laptop specification" />
-  <button class="btn btn-primary" (click)="addSpecification()">Add Specification</button>
+<input type="text" [(ngModel)]="newSpecification.brand" placeholder="Brand" />
+<input type="text" [(ngModel)]="newSpecification.model" placeholder="Model" />
+<input type="text" [(ngModel)]="newSpecification.processor" placeholder="Processor" />
+<input type="text" [(ngModel)]="newSpecification.ramSize" placeholder="RAM Size" />
+<input type="text" [(ngModel)]="newSpecification.storage" placeholder="Storage" />
+<input type="text" [(ngModel)]="newSpecification.graphics" placeholder="Graphics" />
+<input type="text" [(ngModel)]="newSpecification.display" placeholder="Display" />
+<input type="number" [(ngModel)]="newSpecification.price" placeholder="Price" />
 
-  <ul>
-    <li *ngFor="let spec of specificationsList">
-      {{ spec }}
-    </li>
-  </ul>
-</div>
+<button (click)="addSpecification()">Add Specification</button>
+
+<ul>
+  <li *ngFor="let specification of specificationsList">
+    {{ specification.brand }} {{ specification.model }} - {{ specification.processor }}, {{ specification.ramSize }}, {{ specification.storage }}, {{ specification.graphics }}, {{ specification.display }} (Php{{ specification.price }})
+    <button (click)="removeSpecification(specification.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearSpecifications()">Clear All Specifications</button>

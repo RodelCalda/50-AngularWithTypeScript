@@ -1,13 +1,16 @@
-<p>Subject List Semester Works!</p>
+<h2>Subject List</h2>
 
-<div class="subject-list-container">
-  <input type="text" [(ngModel)]="subjectName" placeholder="Enter subject name" />
-  <button class="btn btn-primary" (click)="addSubject()">Add Subject</button>
+<input type="text" [(ngModel)]="newSubject.name" placeholder="Subject Name" />
+<input type="text" [(ngModel)]="newSubject.code" placeholder="Subject Code" />
 
-  <ul>
-    <li *ngFor="let subject of subjectList">
-      {{ subject }}
-    </li>
-  </ul>
-</div>
+<button (click)="addSubject()">Add Subject</button>
+<button (click)="clearSubjects()">Clear All Subjects</button>
+
+<ul>
+  <li *ngFor="let subject of subjectList">
+    {{ subject.name }} (Code: {{ subject.code }})
+    <button (click)="removeSubject(subject.id)">Remove</button>
+  </li>
+</ul>
+
 

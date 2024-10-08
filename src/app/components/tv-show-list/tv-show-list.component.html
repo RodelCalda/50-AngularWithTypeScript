@@ -1,11 +1,17 @@
-<p>tv-show-list works!</p>
-<div class="tv-show-container">
-    <input type="text" [(ngModel)]="tvShowName" placeholder="Enter TV show name" />
-    <button class="btn btn-primary" (click)="addTvShow()">Add TV Show</button>
-  
-    <ul>
-      <li *ngFor="let show of tvShowList">
-        {{ show }}
-      </li>
-    </ul>
-  </div>
+<h2>TV Show List</h2>
+
+<input type="text" [(ngModel)]="newTVShow.title" placeholder="Title" />
+<input type="text" [(ngModel)]="newTVShow.genre" placeholder="Genre" />
+<input type="number" [(ngModel)]="newTVShow.seasons" placeholder="Seasons" />
+<input type="number" [(ngModel)]="newTVShow.releaseYear" placeholder="Release Year" />
+
+<button (click)="addTVShow()">Add TV Show</button>
+
+<ul>
+  <li *ngFor="let tvShow of tvShowList">
+    {{ tvShow.title }} - {{ tvShow.genre }} (Seasons: {{ tvShow.seasons }}, Released in {{ tvShow.releaseYear }})
+    <button (click)="removeTVShow(tvShow.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearTVShows()">Clear All TV Shows</button>

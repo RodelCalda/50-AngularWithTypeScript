@@ -1,13 +1,16 @@
-<p>Classroom List</p>
+<h2>Classroom List</h2>
 
-<div class="classroom-container">
-  <input type="text" [(ngModel)]="studentName" placeholder="Enter student name" />
-  <button class="btn btn-primary" (click)="addStudent()">Add Student</button>
+<input type="text" [(ngModel)]="newClassroom.name" placeholder="Classroom Name" />
+<input type="number" [(ngModel)]="newClassroom.capacity" placeholder="Capacity" />
+<input type="text" [(ngModel)]="newClassroom.location" placeholder="Location" />
 
-  <ul>
-    <li *ngFor="let student of studentList">
-      {{ student }}
-    </li>
-  </ul>
-</div>
+<button (click)="addClassroom()">Add Classroom</button>
 
+<ul>
+  <li *ngFor="let classroom of classroomList">
+    {{ classroom.name }} (Capacity: {{ classroom.capacity }}, Location: {{ classroom.location }})
+    <button (click)="removeClassroom(classroom.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearClassrooms()">Clear All Classrooms</button>

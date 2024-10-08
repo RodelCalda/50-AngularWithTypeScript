@@ -1,13 +1,22 @@
-<p>Flower List for Weddings</p>
+<h2>Flower List</h2>
 
-<div class="flower-container">
-  <input type="text" [(ngModel)]="flowerName" placeholder="Enter flower name" />
-  <button class="btn btn-primary" (click)="addFlower()">Add Flower</button>
+<input type="text" [(ngModel)]="newFlower.name" placeholder="Flower Name" />
+<input type="text" [(ngModel)]="newFlower.color" placeholder="Flower Color" />
+<input type="number" [(ngModel)]="newFlower.price" placeholder="Price" />
 
-  <ul>
-    <li *ngFor="let flower of flowerList">
-      {{ flower }}
-    </li>
-  </ul>
-</div>
+<label>
+  Availability:
+  <input type="checkbox" [(ngModel)]="newFlower.availability" />
+</label>
+
+<button (click)="addFlower()">Add Flower</button>
+
+<ul>
+  <li *ngFor="let flower of flowerList">
+    {{ flower.name }} (Color: {{ flower.color }}, Price: Php{{ flower.price }}, Available: {{ flower.availability ? 'Yes' : 'No' }})
+    <button (click)="removeFlower(flower.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearFlowers()">Clear All Flowers</button>
 

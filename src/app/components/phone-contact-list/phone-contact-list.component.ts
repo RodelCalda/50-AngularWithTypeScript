@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PhoneContactListService } from '../services/phone-contact-list.service'; 
+import { PhoneContact } from '../../../interface/phone-contact';
 
 @Component({
   selector: 'app-phone-contact-list',
@@ -6,25 +8,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./phone-contact-list.component.css']
 })
 export class PhoneContactListComponent {
-  contactList: { name: string, number: string }[] = [
-    { name: 'Juan Dela Cruz', number: '0917 123 4567' },
-    { name: 'Maria Santos', number: '0928 987 6543' },
-    { name: 'Jose Rizal', number: '0998 555 1212' },
-    { name: 'Liza Manoban', number: '0918 321 7654' },
-    { name: 'Andres Bonifacio', number: '0921 456 7890' },
-    { name: 'Emilio Aguinaldo', number: '0916 543 2109' }
-  ]; 
+  newContact: PhoneContact = { id: 0, name: '', phoneNumber: '', email: '' };
+  contactList: PhoneContact[] = [];
 
-  contactName: string = '';
-  contactNumber: string = '';
+  constructor(private contactService: PhoneContactListService) {
+    this.contactList = this.contactService.getContacts();
+  }
 
- 
   addContact() {
-    if (this.contactName && this.contactNumber) { 
-      this.contactList.push({ name: this.contactName, number: this.contactNumber });
-      this.contactName = ''; 
-      this.contactNumber = '';
+    if (this.newContact.name.trim() && this.newContact.phoneNumber.trim() && this.newContact.email.trim()) {
+      const newId = this.contactList.length ? this.contactList[this.contactList.length - 1].id + 1 : 1;
+      const contactToAdd: PhoneContact = { ...this.newContact, id: newId };
+
+      this.contactService.addContact(contactToAdd);
+      this.newContact = { id: 0, name: '', phoneNumber: '', email: '' }; 
+      this.contactList = this.contactService.getContacts(); 
     }
   }
-}
 
+  removeContact(id: number) {
+    this.contactService.removeContact(id);
+    this.contactList = this.contactService.getContacts(); 
+  }
+
+  clearContacts() {
+    this.contactService.clearContacts(); 
+    this.contactList = this.contactService.getContacts(); 
+  }
+}

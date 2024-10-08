@@ -1,30 +1,39 @@
 import { Component } from '@angular/core';
+import { CountryListService } from '../services/country-list.service';
+import { Country } from '../../../interface/country'; 
 
 @Component({
   selector: 'app-country-list',
   templateUrl: './country-list.component.html',
-  styleUrls: ['./country-list.component.css']
+  styleUrls: ['./country-list.component.css'],
 })
 export class CountryListComponent {
-  continents: string[] = ['Asia', 'Africa', 'North America', 'South America', 'Europe', 'Australia/Oceania', 'Antarctica'];
-  countryList: { [key: string]: string[] } = {
-    'Asia': ['China', 'India', 'Japan', 'South Korea'],
-    'Africa': ['Nigeria', 'Egypt', 'South Africa', 'Kenya'],
-    'North America': ['United States', 'Canada', 'Mexico', 'Cuba'],
-    'South America': ['Brazil', 'Argentina', 'Colombia', 'Chile'],
-    'Europe': ['Germany', 'United Kingdom', 'France', 'Italy'],
-    'Australia/Oceania': ['Australia', 'New Zealand', 'Fiji', 'Papua New Guinea'],
-    'Antarctica': ['No permanent residents']
-  };
-  
-  countryName: string = ''; 
-  selectedContinent: string = ''; 
+  newCountry: Country = { id: 0, name: '', code: '' };
+  countryList: Country[] = [];
+
+  constructor(private countryService: CountryListService) {
+    this.countryList = this.countryService.getCountries();
+  }
 
   addCountry() {
-    if (this.countryName && this.selectedContinent) { 
-      this.countryList[this.selectedContinent].push(this.countryName);
-      this.countryName = ''; 
-      this.selectedContinent = ''; 
+    if (this.newCountry.name.trim() && this.newCountry.code.trim()) {
+      const newId = this.countryList.length ? this.countryList[this.countryList.length - 1].id + 1 : 1;
+      const countryToAdd: Country = { ...this.newCountry, id: newId };
+
+      this.countryService.addCountry(countryToAdd);
+      this.newCountry = { id: 0, name: '', code: '' }; 
+      this.countryList = this.countryService.getCountries(); 
     }
   }
+
+  removeCountry(id: number) {
+    this.countryService.removeCountry(id);
+    this.countryList = this.countryService.getCountries(); 
+  }
+
+  clearCountries() {
+    this.countryService.clearCountries(); 
+    this.countryList = this.countryService.getCountries(); 
+  }
 }
+

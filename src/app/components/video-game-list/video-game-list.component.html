@@ -1,0 +1,16 @@
+<h2>Video Game List</h2>
+
+<input type="text" [(ngModel)]="newVideoGame.title" placeholder="Game Title" />
+<input type="text" [(ngModel)]="newVideoGame.genre" placeholder="Genre" />
+<input type="text" [(ngModel)]="newVideoGame.platform" placeholder="Platform" />
+<input type="number" [(ngModel)]="newVideoGame.releaseYear" placeholder="Release Year" />
+
+<button (click)="addVideoGame()">Add Video Game</button>
+<button (click)="clearVideoGames()">Clear All Video Games</button>
+
+<ul>
+  <li *ngFor="let videoGame of videoGameList">
+    {{ videoGame.title }} (Genre: {{ videoGame.genre }}, Platform: {{ videoGame.platform }}, Release Year: {{ videoGame.releaseYear }})
+    <button (click)="removeVideoGame(videoGame.id)">Remove</button>
+  </li>
+</ul>

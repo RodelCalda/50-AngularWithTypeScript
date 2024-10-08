@@ -1,13 +1,17 @@
-<p>Building-List Works!</p>
+<h2>Building List</h2>
 
-<div class="building-container">
-  <input type="text" [(ngModel)]="buildingName" placeholder="Enter building name" />
-  <button class="btn btn-primary" (click)="addBuilding()">Add Building</button>
+<input type="text" [(ngModel)]="newBuilding.name" placeholder="Building Name" />
+<input type="text" [(ngModel)]="newBuilding.address" placeholder="Address" />
+<input type="number" [(ngModel)]="newBuilding.floors" placeholder="Number of Floors" />
+<input type="number" [(ngModel)]="newBuilding.builtYear" placeholder="Year Built" />
 
-  <ul>
-    <li *ngFor="let building of buildingList">
-      {{ building }}
-    </li>
-  </ul>
-</div>
+<button (click)="addBuilding()">Add Building</button>
 
+<ul>
+  <li *ngFor="let building of buildingList">
+    {{ building.name }} - {{ building.address }} (Floors: {{ building.floors }}, Built in {{ building.builtYear }})
+    <button (click)="removeBuilding(building.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearBuildings()">Clear All Buildings</button>

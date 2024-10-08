@@ -1,13 +1,16 @@
-<p>Tool List Works!</p>
+<h2>Tool List</h2>
 
-<div class="tool-list-container">
-  <input type="text" [(ngModel)]="toolName" placeholder="Enter tool name" />
-  <button class="btn btn-primary" (click)="addTool()">Add Tool</button>
+<input type="text" [(ngModel)]="newTool.name" placeholder="Tool Name" />
+<input type="text" [(ngModel)]="newTool.type" placeholder="Tool Type" />
+<input type="text" [(ngModel)]="newTool.brand" placeholder="Brand" />
+<input type="number" [(ngModel)]="newTool.price" placeholder="Price (Php)" />
 
-  <ul>
-    <li *ngFor="let tool of toolList">
-      {{ tool }}
-    </li>
-  </ul>
-</div>
+<button (click)="addTool()">Add Tool</button>
+<button (click)="clearTools()">Clear All Tools</button>
 
+<ul>
+  <li *ngFor="let tool of toolList">
+    {{ tool.name }} (Type: {{ tool.type }}, Brand: {{ tool.brand }}, Price: Php{{ tool.price }})
+    <button (click)="removeTool(tool.id)">Remove</button>
+  </li>
+</ul>

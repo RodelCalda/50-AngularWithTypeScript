@@ -1,12 +1,12 @@
-.game-list-container {
-    border: 2px solid #FF5722; 
+.video-container {
+    border: 2px solid #FF9800;
     padding: 20px;
     border-radius: 8px;
     background-color: #FFE0B2; 
   }
   
   input {
-    border: 2px solid #FF5722; 
+    border: 2px solid #FF9800;
     padding: 8px;
     margin-right: 10px;
     border-radius: 4px;
@@ -14,7 +14,7 @@
   }
   
   button {
-    background-color: #E64A19; 
+    background-color: #F57C00; 
     color: white;
     padding: 8px 16px;
     border: none;

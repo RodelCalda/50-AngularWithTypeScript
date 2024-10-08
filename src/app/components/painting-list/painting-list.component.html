@@ -1,13 +1,17 @@
-<p>Painting-List Works!</p>
+<h2>Painting List</h2>
 
-<div class="painting-container">
-  <input type="text" [(ngModel)]="paintingName" placeholder="Enter painting name" />
-  <button class="btn btn-primary" (click)="addPainting()">Add Painting</button>
+<input type="text" [(ngModel)]="newPainting.title" placeholder="Title" />
+<input type="text" [(ngModel)]="newPainting.artist" placeholder="Artist" />
+<input type="number" [(ngModel)]="newPainting.year" placeholder="Year" />
+<input type="text" [(ngModel)]="newPainting.style" placeholder="Style" />
 
-  <ul>
-    <li *ngFor="let painting of paintingList">
-      {{ painting }}
-    </li>
-  </ul>
-</div>
+<button (click)="addPainting()">Add Painting</button>
 
+<ul>
+  <li *ngFor="let painting of paintingList">
+    {{ painting.title }} by {{ painting.artist }} ({{ painting.year }}) - Style: {{ painting.style }}
+    <button (click)="removePainting(painting.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearPaintings()">Clear All Paintings</button>

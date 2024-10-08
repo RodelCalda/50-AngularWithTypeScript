@@ -1,13 +1,16 @@
-<p>Product List Works!</p>
+<h2>Product List</h2>
 
-<div class="product-list-container">
-  <input type="text" [(ngModel)]="productName" placeholder="Enter product name" />
-  <button class="btn btn-primary" (click)="addProduct()">Add Product</button>
+<input type="text" [(ngModel)]="newProduct.name" placeholder="Product Name" />
+<input type="number" [(ngModel)]="newProduct.price" placeholder="Price" />
+<input type="number" [(ngModel)]="newProduct.stock" placeholder="Stock" />
 
-  <ul>
-    <li *ngFor="let product of productList">
-      {{ product }}
-    </li>
-  </ul>
-</div>
+<button (click)="addProduct()">Add Product</button>
+<button (click)="clearProducts()">Clear All Products</button>
+
+<ul>
+  <li *ngFor="let product of productList">
+    {{ product.name }} (Price: {{ product.price }}, Stock: {{ product.stock }})
+    <button (click)="removeProduct(product.id)">Remove</button>
+  </li>
+</ul>
 

@@ -1,13 +1,18 @@
-<p>Lecture List for BSIT Course</p>
+<h2>Lecture List</h2>
 
-<div class="lecture-container">
-  <input type="text" [(ngModel)]="lectureName" placeholder="Enter lecture title" />
-  <button class="btn btn-primary" (click)="addLecture()">Add Lecture</button>
+<input type="text" [(ngModel)]="newLecture.title" placeholder="Lecture Title" />
+<input type="text" [(ngModel)]="newLecture.speaker" placeholder="Speaker" />
+<input type="date" [(ngModel)]="newLecture.date" placeholder="Date" />
+<input type="number" [(ngModel)]="newLecture.duration" placeholder="Duration (minutes)" />
 
-  <ul>
-    <li *ngFor="let lecture of lectureList">
-      {{ lecture }}
-    </li>
-  </ul>
-</div>
+<button (click)="addLecture()">Add Lecture</button>
+
+<ul>
+  <li *ngFor="let lecture of lectureList">
+    {{ lecture.title }} (Speaker: {{ lecture.speaker }}, Date: {{ lecture.date | date:'shortDate' }}, Duration: {{ lecture.duration }} minutes)
+    <button (click)="removeLecture(lecture.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearLectures()">Clear All Lectures</button>
 

@@ -1,9 +1,16 @@
-<p>Student List</p>
-<input type="text" [(ngModel)]="student" placeholder="Add student" />
+<h2>Student List</h2>
+
+<input type="text" [(ngModel)]="newStudent.name" placeholder="Student Name" />
+<input type="text" [(ngModel)]="newStudent.section" placeholder="Section" />
+<input type="number" [(ngModel)]="newStudent.age" placeholder="Age" />
+
 <button (click)="addStudent()">Add Student</button>
 
 <ul>
-  <li *ngFor="let student of studentList">{{student}}
+  <li *ngFor="let student of studentList">
+    {{ student.name }} (Section: {{ student.section }}, Age: {{ student.age }})
+    <button (click)="removeStudent(student.id)">Remove</button>
   </li>
 </ul>
 
+<button (click)="clearStudent()">Clear All Students</button>

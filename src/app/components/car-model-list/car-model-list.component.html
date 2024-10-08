@@ -1,13 +1,28 @@
-<p>car-model-list works!</p>
+<h3>Car Model List</h3>
 
-<div class="car-model-list-container">
-  <input type="text" [(ngModel)]="carModel" placeholder="Enter car model" />
-  <button class="btn btn-primary" (click)="addCarModel()">Add Car Model</button>
+<form (ngSubmit)="addCarModel()">
+  <label for="name">Name:</label>
+  <input id="name" type="text" [(ngModel)]="newCarModel.name" name="name" placeholder="Car Name" required />
 
-  <ul>
-    <li *ngFor="let model of carModelList">
-      {{ model }}
-    </li>
-  </ul>
-</div>
+  <label for="year">Year:</label>
+  <input id="year" type="number" [(ngModel)]="newCarModel.year" name="year" placeholder="Year" required />
 
+  <label for="make">Make:</label>
+  <input id="make" type="text" [(ngModel)]="newCarModel.make" name="make" placeholder="Make" required />
+
+  <label for="model">Model:</label>
+  <input id="model" type="text" [(ngModel)]="newCarModel.model" name="model" placeholder="Model" required />
+
+  <label for="price">Price:</label>
+  <input id="price" type="number" [(ngModel)]="newCarModel.price" name="price" placeholder="Price" required />
+
+  <button type="submit">Add Car Model</button>
+</form>
+
+<h4>List of Car Models</h4>
+<ul>
+  <li *ngFor="let car of carModels">
+    {{ car.name }} ({{ car.year }}) - {{ car.make }} {{ car.model }}: Php{{ car.price }}
+    <button (click)="removeCarModel(car.id)">Remove</button>
+  </li>
+</ul>

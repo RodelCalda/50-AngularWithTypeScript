@@ -1,13 +1,22 @@
-<p>Destination List Works!</p>
+<h2>Destination List</h2>
 
-<div class="destination-container">
-  <input type="text" [(ngModel)]="destinationName" placeholder="Enter destination" />
-  <button class="btn btn-primary" (click)="addDestination()">Add Destination</button>
+<input type="text" [(ngModel)]="newDestination.name" placeholder="Destination Name" />
+<input type="text" [(ngModel)]="newDestination.country" placeholder="Country" />
+<input type="text" [(ngModel)]="newDestination.description" placeholder="Description" />
 
-  <ul>
-    <li *ngFor="let destination of destinationList">
-      {{ destination }}
-    </li>
-  </ul>
-</div>
+<label>
+  Popular:
+  <input type="checkbox" [(ngModel)]="newDestination.popular" />
+</label>
+
+<button (click)="addDestination()">Add Destination</button>
+
+<ul>
+  <li *ngFor="let destination of destinationList">
+    {{ destination.name }} (Country: {{ destination.country }}, Description: {{ destination.description }}, Popular: {{ destination.popular ? 'Yes' : 'No' }})
+    <button (click)="removeDestination(destination.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearDestinations()">Clear All Destinations</button>
 

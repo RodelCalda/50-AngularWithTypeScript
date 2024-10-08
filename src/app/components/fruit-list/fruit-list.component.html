@@ -1,14 +1,19 @@
-<p>fruit-list works!</p>
 
-<div class="fruit-list-container">
-  <input type="text" [(ngModel)]="fruitName" placeholder="Enter fruit name" />
-  <button class="btn btn-primary" (click)="addFruit()">Add Fruit</button>
+<h2>Fruit List</h2>
 
-  <ul>
-    <li *ngFor="let fruit of fruitList">
-      {{ fruit }}
-    </li>
-  </ul>
-</div>
+<input type="text" [(ngModel)]="newFruit.name" placeholder="Fruit Name" />
+<input type="text" [(ngModel)]="newFruit.color" placeholder="Color" />
+<input type="number" [(ngModel)]="newFruit.price" placeholder="Price" />
+
+<button (click)="addFruit()">Add Fruit</button>
+<button (click)="clearFruits()">Clear All Fruits</button>
+
+<ul>
+  <li *ngFor="let fruit of fruitList">
+    {{ fruit.name }} (Color: {{ fruit.color }}, Price: Php{{ fruit.price }})
+    <button (click)="removeFruit(fruit.id)">Remove</button>
+  </li>
+</ul>
+
 
 

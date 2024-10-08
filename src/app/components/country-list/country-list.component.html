@@ -1,20 +1,15 @@
-<p>Country List by Continent</p>
+<h2>Country List</h2>
 
-<div class="country-list-container">
-  <input type="text" [(ngModel)]="countryName" placeholder="Enter country name" />
-  <select [(ngModel)]="selectedContinent">
-    <option value="" disabled selected>Select a continent</option>
-    <option *ngFor="let continent of continents" [value]="continent">{{ continent }}</option>
-  </select>
-  <button class="btn btn-primary" (click)="addCountry()">Add Country</button>
+<input type="text" [(ngModel)]="newCountry.name" placeholder="Country Name" />
+<input type="text" [(ngModel)]="newCountry.code" placeholder="Country Code" />
 
-  <div *ngFor="let continent of continents">
-    <h3>{{ continent }}</h3>
-    <ul>
-      <li *ngFor="let country of countryList[continent]">
-        {{ country }}
-      </li>
-    </ul>
-  </div>
-</div>
+<button (click)="addCountry()">Add Country</button>
+<button (click)="clearCountries()">Clear All Countries</button>
+
+<ul>
+  <li *ngFor="let country of countryList">
+    {{ country.name }} (Code: {{ country.code }})
+    <button (click)="removeCountry(country.id)">Remove</button>
+  </li>
+</ul>
 

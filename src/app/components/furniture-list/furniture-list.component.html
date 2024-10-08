@@ -1,12 +1,17 @@
-<p>Furniture-List Works!</p>
+<h2>Furniture List</h2>
 
-<div class="furniture-container">
-  <input type="text" [(ngModel)]="furnitureName" placeholder="Enter furniture item" />
-  <button class="btn btn-primary" (click)="addFurniture()">Add Furniture</button>
+<input type="text" [(ngModel)]="newFurniture.name" placeholder="Name" />
+<input type="text" [(ngModel)]="newFurniture.type" placeholder="Type" />
+<input type="text" [(ngModel)]="newFurniture.material" placeholder="Material" />
+<input type="number" [(ngModel)]="newFurniture.price" placeholder="Price" />
 
-  <ul>
-    <li *ngFor="let item of furnitureList">
-      {{ item }}
-    </li>
-  </ul>
-</div>
+<button (click)="addFurniture()">Add Furniture</button>
+
+<ul>
+  <li *ngFor="let furniture of furnitureList">
+    {{ furniture.name }} - {{ furniture.type }} (Material: {{ furniture.material }}, Price: Php{{ furniture.price }})
+    <button (click)="removeFurniture(furniture.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearFurnitureList()">Clear All Furniture</button>

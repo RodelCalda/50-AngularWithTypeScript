@@ -1,13 +1,17 @@
-<p>city-list works!</p>
+<h2>City List</h2>
 
-<div class="city-list-container">
-  <input type="text" [(ngModel)]="cityName" placeholder="Enter city name" />
-  <button class="btn btn-primary" (click)="addCity()">Add City</button>
+<input type="text" [(ngModel)]="newCity.name" placeholder="City Name" />
+<input type="text" [(ngModel)]="newCity.country" placeholder="Country" />
+<input type="number" [(ngModel)]="newCity.population" placeholder="Population" />
+<input type="number" [(ngModel)]="newCity.area" placeholder="Area (sq km)" />
 
-  <ul>
-    <li *ngFor="let city of cityList">
-      {{ city }}
-    </li>
-  </ul>
-</div>
+<button (click)="addCity()">Add City</button>
+<button (click)="clearCities()">Clear All Cities</button>
+
+<ul>
+  <li *ngFor="let city of cityList">
+    {{ city.name }}, {{ city.country }} (Population: {{ city.population }}, Area: {{ city.area }} sq km)
+    <button (click)="removeCity(city.id)">Remove</button>
+  </li>
+</ul>
 

@@ -1,12 +1,17 @@
-<p>video-list works!</p>
+<h2>Video List</h2>
 
-<div class="video-container">
-    <input type="text" [(ngModel)]="videoTitle" placeholder="Enter video title" />
-    <button class="btn btn-primary" (click)="addVideo()">Add Video</button>
-  
-    <ul>
-      <li *ngFor="let video of videoList">
-        {{ video }}
-      </li>
-    </ul>
-  </div>
+<input type="text" [(ngModel)]="newVideo.title" placeholder="Title" />
+<input type="text" [(ngModel)]="newVideo.genre" placeholder="Genre" />
+<input type="number" [(ngModel)]="newVideo.duration" placeholder="Duration (minutes)" />
+<input type="number" [(ngModel)]="newVideo.releaseYear" placeholder="Release Year" />
+
+<button (click)="addVideo()">Add Video</button>
+
+<ul>
+  <li *ngFor="let video of videoList">
+    {{ video.title }} - {{ video.genre }} (Duration: {{ video.duration }} min, Released in {{ video.releaseYear }})
+    <button (click)="removeVideo(video.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearVideos()">Clear All Videos</button>

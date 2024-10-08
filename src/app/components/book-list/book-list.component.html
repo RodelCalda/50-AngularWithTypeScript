@@ -1,13 +1,19 @@
-<p>book-list works!</p>
+<h2>Book List</h2>
 
-<div class="book-list-container">
-  <input type="text" [(ngModel)]="bookTitle" placeholder="Enter book title" />
-  <button class="btn btn-primary" (click)="addBook()">Add Book</button>
+<input type="text" [(ngModel)]="newBook.title" placeholder="Book Title" />
+<input type="text" [(ngModel)]="newBook.author" placeholder="Author" />
+<input type="text" [(ngModel)]="newBook.genre" placeholder="Genre" />
+<input type="number" [(ngModel)]="newBook.year" placeholder="Publication Year" />
 
-  <ul>
-    <li *ngFor="let book of bookList">
-      {{ book }}
-    </li>
-  </ul>
-</div>
+<button (click)="addBook()">Add Book</button>
+<button (click)="clearBooks()">Clear All Books</button>
+
+<ul>
+  <li *ngFor="let book of bookList">
+    {{ book.title }} by {{ book.author }} (Genre: {{ book.genre }}, Year: {{ book.year }})
+    <button (click)="removeBook(book.id)">Remove</button>
+  </li>
+</ul>
+
+
 
