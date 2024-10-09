@@ -1,11 +1,16 @@
-<p>Framework-List Works!</p>
-<div class="frameworks-container">
-    <input type="text" [(ngModel)]="frameworkName" placeholder="Enter framework name" />
-    <button class="btn btn-primary" (click)="addFramework()">Add Framework</button>
-  
-    <ul>
-      <li *ngFor="let framework of frameworksList">
-        {{ framework }}
-      </li>
-    </ul>
-  </div>
+<h2>Framework List</h2>
+
+<input type="text" [(ngModel)]="newFramework.name" placeholder="Framework Name" />
+<input type="text" [(ngModel)]="newFramework.language" placeholder="Language" />
+<input type="text" [(ngModel)]="newFramework.description" placeholder="Description" />
+
+<button (click)="addFramework()">Add Framework</button>
+
+<ul>
+  <li *ngFor="let framework of frameworkList">
+    {{ framework.name }} - {{ framework.language }} ({{ framework.description }})
+    <button (click)="removeFramework(framework.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearFrameworks()">Clear All Frameworks</button>
