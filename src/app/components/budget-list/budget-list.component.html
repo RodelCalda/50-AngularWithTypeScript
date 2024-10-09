@@ -1,12 +1,16 @@
-<p>Budget-List Works!</p>
-<div class="budget-container">
-    <input type="text" [(ngModel)]="budgetItem" placeholder="Enter budget item" />
-    <input type="number" [(ngModel)]="budgetAmount" placeholder="Enter budget amount" />
-    <button class="btn btn-primary" (click)="addBudget()">Add Budget Item</button>
-  
-    <ul>
-      <li *ngFor="let item of budgetList">
-        {{ item.name }} - {{ item.amount | currency:'PHP':'symbol' }}
-      </li>
-    </ul>
-  </div>
+<h2>Budget List</h2>
+
+<input type="text" [(ngModel)]="newBudget.category" placeholder="Category" />
+<input type="number" [(ngModel)]="newBudget.amount" placeholder="Amount" />
+<input type="date" [(ngModel)]="newBudget.date" />
+
+<button (click)="addBudget()">Add Budget</button>
+
+<ul>
+  <li *ngFor="let budget of budgetList">
+    {{ budget.category }} - Php{{ budget.amount }} (Date: {{ budget.date }})
+    <button (click)="removeBudget(budget.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearBudgets()">Clear All Budgets</button>

@@ -51,11 +51,12 @@ import { BudgetListComponent } from "./components/budget-list/budget-list.compon
 import { PresentationListComponent } from "./components/presentation-list/presentation-list.component";
 import { TourListComponent } from "./components/tour-list/tour-list.component";
 import { EventListComponent } from "./components/event-list/event-list.component";
-import { DeveloperToolsListComponent } from "./components/developer-tools-list/developer-tools-list.component";
+import { DeveloperToolsListService } from "./components/services/developer-tools-list.service"; 
 import { FrameworkListComponent } from "./components/framework-list/framework-list.component";
 import { LibraryListComponent } from "./components/library-list/library-list.component";
 import { Component, OnInit } from '@angular/core';
 import { VideoListComponent } from "./components/video-list/video-list.component";
+import { DeveloperToolListComponent } from "./components/developer-tools-list/developer-tools-list.component";
 
 
 const routes: Routes = [
@@ -105,7 +106,7 @@ const routes: Routes = [
     {path: 'presentation-list', component: PresentationListComponent},
     {path: 'tour-list', component: TourListComponent},
     {path: 'event-list', component: EventListComponent},
-    {path: 'developer-tools-list', component: DeveloperToolsListComponent},
+    {path: 'developer-tools-list', component: DeveloperToolListComponent},
     {path: 'framework-list', component: FrameworkListComponent},
     {path: 'library-list', component: LibraryListComponent},
     {path: 'video-list', component: VideoListComponent},
@@ -171,7 +172,7 @@ declarations: [
     PresentationListComponent,
     TourListComponent,
     EventListComponent,
-    DeveloperToolsListComponent,
+    DeveloperToolListComponent,
     FrameworkListComponent,
     LibraryListComponent,
     VideoListComponent,

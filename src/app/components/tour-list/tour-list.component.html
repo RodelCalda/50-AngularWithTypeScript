@@ -1,12 +1,17 @@
-<p>Tour-List works!</p>
-<div class="tour-container">
-    <input type="text" [(ngModel)]="tourLocation" placeholder="Enter tour location" />
-    <input type="date" [(ngModel)]="tourDate" placeholder="Select tour date" />
-    <button class="btn btn-primary" (click)="addTour()">Add Tour Date</button>
-  
-    <ul>
-      <li *ngFor="let tour of tourList">
-        {{ tour.location }} - {{ tour.date | date:'fullDate' }}
-      </li>
-    </ul>
-  </div> 
+<h2>Tour List</h2>
+
+<input type="text" [(ngModel)]="newTour.destination" placeholder="Destination" />
+<input type="number" [(ngModel)]="newTour.duration" placeholder="Duration (Days)" />
+<input type="number" [(ngModel)]="newTour.price" placeholder="Price (USD)" />
+<input type="date" [(ngModel)]="newTour.startDate" />
+
+<button (click)="addTour()">Add Tour</button>
+
+<ul>
+  <li *ngFor="let tour of tourList">
+    {{ tour.destination }} - {{ tour.duration }} days (Price: Php{{ tour.price }}, Start Date: {{ tour.startDate }})
+    <button (click)="removeTour(tour.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearTours()">Clear All Tours</button>

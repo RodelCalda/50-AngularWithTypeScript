@@ -1,14 +1,18 @@
-<p>Presentation-List Works!</p>
+<h2>Presentation List</h2>
 
+<input type="text" [(ngModel)]="newPresentation.title" placeholder="Title" />
+<input type="text" [(ngModel)]="newPresentation.topic" placeholder="Topic" />
+<input type="text" [(ngModel)]="newPresentation.presenter" placeholder="Presenter" />
+<input type="date" [(ngModel)]="newPresentation.date" />
 
-<div class="presentation-container">
-  <input type="text" [(ngModel)]="presentationTopic" placeholder="Enter presentation topic" />
-  <button class="btn btn-primary" (click)="addPresentation()">Add Presentation Topic</button>
+<button (click)="addPresentation()">Add Presentation</button>
 
-  <ul>
-    <li *ngFor="let topic of presentationList">
-      {{ topic }}
-    </li>
-  </ul>
-</div>
+<ul>
+  <li *ngFor="let presentation of presentationList">
+    {{ presentation.title }} - {{ presentation.topic }} (Presenter: {{ presentation.presenter }}, Date: {{ presentation.date }})
+    <button (click)="removePresentation(presentation.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearPresentations()">Clear All Presentations</button>
 

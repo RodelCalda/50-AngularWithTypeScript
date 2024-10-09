@@ -1,13 +1,17 @@
-<p>Event-List Works!</p>
+<h2>Event List</h2>
 
-<div class="event-container">
-    <input type="text" [(ngModel)]="eventName" placeholder="Enter event name" />
-    <input type="date" [(ngModel)]="eventDate" placeholder="Select event date" />
-    <button class="btn btn-primary" (click)="addEvent()">Add Event</button>
-  
-    <ul>
-      <li *ngFor="let event of eventList">
-        {{ event.name }} - {{ event.date | date:'fullDate' }}
-      </li>
-    </ul>
-  </div>
+<input type="text" [(ngModel)]="newEvent.name" placeholder="Event Name" />
+<input type="text" [(ngModel)]="newEvent.location" placeholder="Location" />
+<input type="date" [(ngModel)]="newEvent.date" />
+<input type="text" [(ngModel)]="newEvent.description" placeholder="Description" />
+
+<button (click)="addEvent()">Add Event</button>
+
+<ul>
+  <li *ngFor="let event of eventList">
+    {{ event.name }} (Location: {{ event.location }}, Date: {{ event.date }}, Description: {{ event.description }})
+    <button (click)="removeEvent(event.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearEvents()">Clear All Events</button>

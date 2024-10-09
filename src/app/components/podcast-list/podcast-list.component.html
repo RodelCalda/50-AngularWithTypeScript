@@ -1,11 +1,18 @@
-<p>Podcast-List Works!</p>
-<div class="podcast-container">
-    <input type="text" [(ngModel)]="podcastName" placeholder="Enter podcast episode name" />
-    <button class="btn btn-primary" (click)="addPodcast()">Add Podcast</button>
-  
-    <ul>
-      <li *ngFor="let podcast of podcastList">
-        {{ podcast }}
-      </li>
-    </ul>
-  </div>
+<h2>Podcast List</h2>
+
+<input type="text" [(ngModel)]="newPodcast.title" placeholder="Podcast Title" />
+<input type="text" [(ngModel)]="newPodcast.host" placeholder="Host" />
+<input type="text" [(ngModel)]="newPodcast.genre" placeholder="Genre" />
+<input type="number" [(ngModel)]="newPodcast.episodes" placeholder="Episodes" />
+<input type="number" [(ngModel)]="newPodcast.releaseYear" placeholder="Release Year" />
+
+<button (click)="addPodcast()">Add Podcast</button>
+
+<ul>
+  <li *ngFor="let podcast of podcastList">
+    {{ podcast.title }} by {{ podcast.host }} - {{ podcast.genre }} ({{ podcast.episodes }} episodes, Released in {{ podcast.releaseYear }})
+    <button (click)="removePodcast(podcast.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearPodcasts()">Clear All Podcasts</button>

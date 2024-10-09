@@ -1,11 +1,17 @@
-<p>Library-List Works!</p>
-<div class="libraries-container">
-    <input type="text" [(ngModel)]="libraryName" placeholder="Enter library name" />
-    <button class="btn btn-primary" (click)="addLibrary()">Add Library</button>
-  
-    <ul>
-      <li *ngFor="let library of librariesList">
-        {{ library }}
-      </li>
-    </ul>
-  </div>
+<h2>Library List</h2>
+
+<input type="text" [(ngModel)]="newBook.title" placeholder="Book Title" />
+<input type="text" [(ngModel)]="newBook.author" placeholder="Author" />
+<input type="text" [(ngModel)]="newBook.genre" placeholder="Genre" />
+<input type="number" [(ngModel)]="newBook.yearPublished" placeholder="Year Published" />
+
+<button (click)="addBook()">Add Book</button>
+
+<ul>
+  <li *ngFor="let book of libraryList">
+    {{ book.title }} by {{ book.author }} ({{ book.genre }}, Published in {{ book.yearPublished }})
+    <button (click)="removeBook(book.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearLibrary()">Clear All Books</button>

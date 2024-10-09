@@ -1,11 +1,18 @@
-<p>Meal-Plan-List Works!</p>
-<div class="meal-plan-container">
-    <input type="text" [(ngModel)]="mealName" placeholder="Enter meal name" />
-    <button class="btn btn-primary" (click)="addMeal()">Add Meal</button>
-  
-    <ul>
-      <li *ngFor="let meal of mealPlanList">
-        {{ meal }}
-      </li>
-    </ul>
-  </div>
+<h2>Meal Plan List</h2>
+
+<input type="text" [(ngModel)]="newMealPlan.name" placeholder="Meal Plan Name" />
+<input type="text" [(ngModel)]="newMealPlan.day" placeholder="Day of the Week" />
+
+
+<input type="text" [(ngModel)]="mealsInput" placeholder="Meals (comma separated)" />
+
+<button (click)="addMealPlan()">Add Meal Plan</button>
+
+<ul>
+  <li *ngFor="let mealPlan of mealPlanList">
+    {{ mealPlan.name }} - {{ mealPlan.day }} (Meals: {{ mealPlan.meals.join(', ') }})
+    <button (click)="removeMealPlan(mealPlan.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearMealPlans()">Clear All Meal Plans</button>

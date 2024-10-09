@@ -1,13 +1,17 @@
-<p>Exercise-List Works!</p>
+<h2>Exercise List</h2>
 
-<div class="exercise-container">
-  <input type="text" [(ngModel)]="exerciseName" placeholder="Enter exercise name" />
-  <button class="btn btn-primary" (click)="addExercise()">Add Exercise</button>
+<input type="text" [(ngModel)]="newExercise.name" placeholder="Exercise Name" />
+<input type="text" [(ngModel)]="newExercise.category" placeholder="Category" />
+<input type="number" [(ngModel)]="newExercise.duration" placeholder="Duration (minutes)" />
+<input type="text" [(ngModel)]="newExercise.intensity" placeholder="Intensity (low, medium, high)" />
 
-  <ul>
-    <li *ngFor="let exercise of exerciseList">
-      {{ exercise }}
-    </li>
-  </ul>
-</div>
+<button (click)="addExercise()">Add Exercise</button>
 
+<ul>
+  <li *ngFor="let exercise of exerciseList">
+    {{ exercise.name }} - {{ exercise.category }} ({{ exercise.duration }} minutes, Intensity: {{ exercise.intensity }})
+    <button (click)="removeExercise(exercise.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearExercises()">Clear All Exercises</button>

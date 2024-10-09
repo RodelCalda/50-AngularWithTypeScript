@@ -1,11 +1,16 @@
-<p>Developer-Tools-List Works!</p>
-<div class="tools-container">
-    <input type="text" [(ngModel)]="toolName" placeholder="Enter tool name" />
-    <button class="btn btn-primary" (click)="addTool()">Add Tool</button>
-  
-    <ul>
-      <li *ngFor="let tool of toolsList">
-        {{ tool }}
-      </li>
-    </ul>
-  </div>
+<h2>Developer Tools List</h2>
+
+<input type="text" [(ngModel)]="newTool.name" placeholder="Tool Name" />
+<input type="text" [(ngModel)]="newTool.category" placeholder="Category" />
+<input type="text" [(ngModel)]="newTool.description" placeholder="Description" />
+
+<button (click)="addTool()">Add Tool</button>
+
+<ul>
+  <li *ngFor="let tool of toolList">
+    {{ tool.name }} - {{ tool.category }} ({{ tool.description }})
+    <button (click)="removeTool(tool.id)">Remove</button>
+  </li>
+</ul>
+
+<button (click)="clearTools()">Clear All Tools</button>
